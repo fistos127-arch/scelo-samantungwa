@@ -176,9 +176,9 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -186,11 +186,16 @@
             border-radius: 10px;
             overflow: hidden;
             border: 3px solid var(--red);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 180px;
             object-fit: cover;
             display: block;
         }
@@ -307,16 +312,52 @@
         <h2 class="section-title">Our Gallery</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="scelo-image.jpg" alt="Driving School">
-                <div class="gallery-caption">Professional Training</div>
+                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSAM.jpg" alt="SCELO SAMANTUNGWA">
             </div>
             <div class="gallery-item">
-                <img src="scelo-image2.jpg" alt="Driving School">
-                <div class="gallery-caption">Expert Instructors</div>
+                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSA_.jpg" alt="SCELO SAMANTUNGWA">
             </div>
             <div class="gallery-item">
-                <img src="scelo-image3.jpg" alt="Driving School">
-                <div class="gallery-caption">Quality Education</div>
+                <img src="May_be_an_image_of_text_that_says_SCELOSAMANTUNGWA.jpg" alt="SCELO SAMANTUNGWA">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_and_text (1).jpg" alt="Driving School">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_and_text.jpg" alt="Driving School">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_road_and_text_that_says_SCE.jpg" alt="SCE Driving">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_road_and_text.jpg" alt="Road Driving">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_road_and_text (1).jpg" alt="Road Driving">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_text_that_says_SCELOSAM (1).jpg" alt="SCELO SAM">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_text_that_says_SCELOSAM (2).jpg" alt="SCELO SAM">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_text_that_says_SCELOSAM (3).jpg" alt="SCELO SAM">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_smiling_and_text.jpg" alt="Our Team">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_one_or_more_people.jpg" alt="Students">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_studying_and_text.jpg" alt="Learning">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_a_graphic_of_studying_and_text_that_says_SC.jpg" alt="Study">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_van.jpg" alt="Van Training">
             </div>
         </div>
     </section>
