@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCELO SAMANTUNGWA Driving School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --red: #E31C25;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--black);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo h1 {
+            color: var(--white);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--red);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
+                        url('scelo-image.jpg') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            color: var(--white);
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            color: var(--white);
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c41820;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--red);
+            margin: 1rem auto;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid var(--red);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .about {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .about .section-title {
+            color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: var(--red);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing {
+            background-color: var(--light-gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--black);
+            transition: transform 0.3s;
+        }
+
+        .price-card.featured {
+            border-color: var(--red);
+            transform: scale(1.05);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--red);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--black);
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .price-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact {
+            background: linear-gradient(var(--black), var(--black));
+            color: var(--white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--red);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            color: var(--black);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #c41820;
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <h1>SCELO SAMANTUNGWA</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Learn to Drive with Confidence</h2>
+        <p>Professional driving lessons tailored to your needs. Get your driver's license with SCELO SAMANTUNGWA Driving School.</p>
+        <a href="#contact" class="btn">Book Your Lesson</a>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Beginner Lessons</h3>
+                <p>Start your driving journey with our comprehensive beginner courses designed for new drivers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Learner's License</h3>
+                <p>We prepare you for the learner's license test with proper theory and practical training.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Driver's License</h3>
+                <p>Complete preparation for your driver's license test including road test practice.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>Defensive Driving</h3>
+                <p>Advanced driving techniques to help you stay safe on the roads.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>Refresher Courses</h3>
+                <p>Need to get back behind the wheel? Our refresher courses help restore your confidence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚙</div>
+                <h3>Highway Driving</h3>
+                <p>Master highway driving with professional instruction on high-speed roads.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>SCELO SAMANTUNGWA Driving School</h3>
+                <p>We are committed to producing safe, responsible, and confident drivers. With years of experience in the industry, our professional instructors provide personalized training that meets each student's unique needs.</p>
+                <p>Our mission is to not just help you pass your test, but to equip you with lifelong driving skills that will keep you safe on the road.</p>
+                <p>At SCELO SAMANTUNGWA, we believe that quality driver education is the foundation of road safety.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <h3>500+</h3>
+                    <p>Students Passed</p>
+                </div>
+                <div class="stat-box">
+                    <h3>98%</h3>
+                    <p>Pass Rate</p>
+                </div>
+                <div class="stat-box">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-box">
+                    <h3>50+</h3>
+                    <p>Reviews</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+        <h2 class="section-title">Our Pricing</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Basic Package</h3>
+                <div class="price">R1,500<span>/month</span></div>
+                <ul>
+                    <li>5 Driving Lessons</li>
+                    <li>60 Minutes Each</li>
+                    <li>Learner's License Prep</li>
+                    <li>Weekday Availability</li>
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="price-card featured">
+                <h3>Standard Package</h3>
+                <div class="price">R2,800<span>/month</span></div>
+                <ul>
+                    <li>10 Driving Lessons</li>
+                    <li>60 Minutes Each</li>
+                    <li>Learner's & Driver's Prep</li>
+                    <li>Flexible Scheduling</li>
+                    <li>Mock Test Included</li>
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="price-card">
+                <h3>Premium Package</h3>
+                <div class="price">R4,500<span>/month</span></div>
+                <ul>
+                    <li>20 Driving Lessons</li>
+                    <li>60 Minutes Each</li>
+                    <li>Complete Training</li>
+                    <li>Unlimited Scheduling</li>
+                    <li>Mock Tests Included</li>
+                    <li>Highway Driving</li>
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <p><strong>Address</strong></p>
+                        <p>123 Main Street, South Africa</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <p><strong>Phone</strong></p>
+                        <p>+27 12 345 6789</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <p><strong>Email</strong></p>
+                        <p>info@scelosamantungwa.co.za</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div>
+                        <p><strong>Operating Hours</strong></p>
+                        <p>Mon - Sat: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <h3>Book Your Lesson</h3>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <select>
+                    <option value="">Select Package</option>
+                    <option value="basic">Basic Package</option>
+                    <option value="standard">Standard Package</option>
+                    <option value="premium">Premium Package</option>
+                </select>
+                <textarea rows="5" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SCELO SAMANTUNGWA Driving School. All Rights Reserved.</p>
+        <p>Professional Driving Education</p>
+        <div class="social-links">
+            <a href="#">f</a>
+            <a href="#">in</a>
+            <a href="#">ig</a>
+        </div>
+    </footer>
+</body>
+</html>
