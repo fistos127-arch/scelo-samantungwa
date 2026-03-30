@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCELO SAMANTUNGWA Driving School</title>
+    <title>SCELO SAMANTUNGWA - Driving School & Training Courses</title>
     <style>
         * {
             margin: 0;
@@ -17,6 +17,7 @@
             --black: #1a1a1a;
             --white: #ffffff;
             --light-gray: #f5f5f5;
+            --dark-gray: #333;
         }
 
         body {
@@ -43,8 +44,8 @@
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--red);
             border-radius: 50%;
             display: flex;
@@ -57,9 +58,10 @@
 
         .logo h1 {
             color: var(--white);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            line-height: 1.2;
         }
 
         nav ul {
@@ -80,9 +82,9 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
-                        url('scelo-image.jpg') center/cover;
-            height: 80vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
+                        url('hero-background.jpg') center/cover;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -99,10 +101,16 @@
             letter-spacing: 3px;
         }
 
+        .hero h3 {
+            color: var(--red);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
         .hero p {
             color: var(--white);
             font-size: 1.3rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-bottom: 2rem;
         }
 
@@ -116,11 +124,22 @@
             text-transform: uppercase;
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s;
+            margin: 0.5rem;
         }
 
         .btn:hover {
             background-color: #c41820;
             transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
         }
 
         .section {
@@ -129,13 +148,34 @@
             margin: 0 auto;
         }
 
+        .section-dark {
+            background-color: var(--black);
+            color: var(--white);
+            max-width: 100%;
+        }
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             color: var(--black);
             position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .section-dark .section-title {
+            color: var(--white);
+        }
+
+        .section-dark .section-subtitle {
+            color: #aaa;
         }
 
         .section-title::after {
@@ -147,9 +187,27 @@
             margin: 1rem auto;
         }
 
-        .services {
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            border: 4px solid var(--red);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
@@ -184,103 +242,69 @@
             color: var(--black);
         }
 
-        .about {
-            background-color: var(--black);
-            color: var(--white);
+        .courses {
+            background: var(--light-gray);
         }
 
-        .about .section-title {
-            color: var(--white);
-        }
-
-        .about-content {
+        .courses-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            border: 4px solid var(--red);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-box {
-            background: var(--red);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .stat-box h3 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing {
-            background-color: var(--light-gray);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .price-card {
+        .course-item {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 1.5rem;
             border-radius: 10px;
-            text-align: center;
-            border: 2px solid var(--black);
+            border-left: 4px solid var(--red);
             transition: transform 0.3s;
         }
 
-        .price-card.featured {
-            border-color: var(--red);
-            transform: scale(1.05);
+        .course-item:hover {
+            transform: translateX(5px);
         }
 
-        .price-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: bold;
+        .course-item h3 {
             color: var(--red);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .price span {
-            font-size: 1rem;
-            color: var(--black);
+        .gallery {
+            background-color: var(--black);
+            padding: 5rem 2rem;
         }
 
-        .price-card ul {
-            list-style: none;
-            margin-bottom: 2rem;
+        .gallery .section-title {
+            color: var(--white);
         }
 
-        .price-card li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .contact {
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid var(--red);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .contact-section {
             background: linear-gradient(var(--black), var(--black));
             color: var(--white);
         }
@@ -305,13 +329,15 @@
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background: var(--red);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .contact-form {
@@ -361,6 +387,26 @@
             background: #c41820;
         }
 
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature-box h3 {
+            color: var(--red);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
         footer {
             background: var(--black);
             color: var(--white);
@@ -389,6 +435,7 @@
             justify-content: center;
             color: var(--white);
             text-decoration: none;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -401,10 +448,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .price-card.featured {
-                transform: scale(1);
-            }
-
             nav {
                 display: none;
             }
@@ -415,7 +458,7 @@
     <header>
         <div class="logo">
             <div class="logo-icon">S</div>
-            <h1>SCELO SAMANTUNGWA</h1>
+            <h1>SCELO<br>SAMANTUNGWA</h1>
         </div>
         <nav>
             <ul>
@@ -426,132 +469,181 @@
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <h2>Learn to Drive with Confidence</h2>
-        <p>Professional driving lessons tailored to your needs. Get your driver's license with SCELO SAMANTUNGWA Driving School.</p>
-        <a href="#contact" class="btn">Book Your Lesson</a>
+    <section class="hero">
+        <h2>SCELO SAMANTUNGWA</h2>
+        <h3>Driving School & Training Centre</h3>
+        <p>Professional Learners License & Driving Lessons. Get road ready with us!</p>
+        <div>
+            <a href="contact.html" class="btn">Book Now</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
     </section>
 
-    <section class="section" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="services">
-            <div class="service-card">
-                <div class="service-icon">🚗</div>
-                <h3>Beginner Lessons</h3>
-                <p>Start your driving journey with our comprehensive beginner courses designed for new drivers.</p>
+    <section class="section" id="about">
+        <h2 class="section-title">Welcome to SCELO SAMANTUNGWA</h2>
+        <p class="section-subtitle">Your trusted partner in driver education and training</p>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At SCELO SAMANTUNGWA, we are committed to producing safe, responsible, and confident drivers. With years of experience in the industry, our professional instructors provide personalized training that meets each student's unique needs.</p>
+                <p>Our mission is to not just help you pass your test, but to equip you with lifelong driving skills that will keep you safe on the road.</p>
+                <p>We offer comprehensive training programs for individuals and businesses, ensuring the highest standards of driver competency and road safety.</p>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h3>98% Pass Rate</h3>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Certified Instructors</h3>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Flexible Scheduling</h3>
+                    </div>
+                </div>
             </div>
+            <div class="about-image">
+                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSAM.jpg" alt="SCELO SAMANTUNGWA">
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive driving and training solutions</p>
+        <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">📋</div>
                 <h3>Learner's License</h3>
-                <p>We prepare you for the learner's license test with proper theory and practical training.</p>
+                <p>Complete preparation for your learner's licence test. We cover all the theory and practical aspects you need to pass.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>Driver's License</h3>
-                <p>Complete preparation for your driver's license test including road test practice.</p>
+                <div class="service-icon">🚗</div>
+                <h3>Driving Lessons (Code 08)</h3>
+                <p>Professional driving lessons for Code 08 (light motor vehicle). Learn at your own pace with patient instructors.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3>Defensive Driving</h3>
-                <p>Advanced driving techniques to help you stay safe on the roads.</p>
+                <div class="service-icon">🚛</div>
+                <h3>Driving Lessons (Code 10)</h3>
+                <p>Code 10 truck driving lessons. Master heavy vehicle operation with our experienced trainers.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🔄</div>
-                <h3>Refresher Courses</h3>
-                <p>Need to get back behind the wheel? Our refresher courses help restore your confidence.</p>
+                <div class="service-icon">🚜</div>
+                <h3>Driving Lessons (Code 14)</h3>
+                <p>Code 14 (heavy combination) training. Become a professional truck driver with our comprehensive course.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚙</div>
-                <h3>Highway Driving</h3>
-                <p>Master highway driving with professional instruction on high-speed roads.</p>
+                <div class="service-icon">⚠️</div>
+                <h3>Hazchem Course</h3>
+                <p>Hazardous materials transportation training. Learn proper handling and safety protocols for dangerous goods.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Forklift Certificate</h3>
+                <p>Get certified in forklift operation. Theory and practical training included.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚜</div>
+                <h3>TLB Certificate</h3>
+                <p>Training for TLB (Tractor Loader Backhoe) operation. Get qualified for construction equipment.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔥</div>
+                <h3>Fire Fighter Certificates</h3>
+                <p>Fire safety training and certification. Learn fire prevention and emergency response.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📷</div>
+                <h3>ID Photos</h3>
+                <p>Professional ID photos for all your documentation needs.</p>
             </div>
         </div>
     </section>
 
-    <section class="section about" id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="scelo-image2.jpg" alt="SCELO SAMANTUNGWA Driving School">
+    <section class="section courses">
+        <h2 class="section-title">Our Courses</h2>
+        <p class="section-subtitle">Professional training programs tailored to your needs</p>
+        <div class="courses-grid">
+            <div class="course-item">
+                <h3>Learner's License Course</h3>
+                <p>Complete preparation for your learner's test</p>
             </div>
-            <div class="about-text">
-                <h3>SCELO SAMANTUNGWA Driving School</h3>
-                <p>We are committed to producing safe, responsible, and confident drivers. With years of experience in the industry, our professional instructors provide personalized training that meets each student's unique needs.</p>
-                <p>Our mission is to not just help you pass your test, but to equip you with lifelong driving skills that will keep you safe on the road.</p>
-                <p>At SCELO SAMANTUNGWA, we believe that quality driver education is the foundation of road safety.</p>
+            <div class="course-item">
+                <h3>Code 08 Driving</h3>
+                <p>Light motor vehicle lessons</p>
             </div>
-            <div class="about-image">
-                <img src="scelo-image2.jpg" alt="SCELO SAMANTUNGWA Driving School">
+            <div class="course-item">
+                <h3>Code 10 Driving</h3>
+                <p>Truck driving lessons</p>
             </div>
-        </div>
-    </section>
-
-    <section class="section pricing" id="pricing">
-        <h2 class="section-title">Our Pricing</h2>
-        <div class="pricing-grid">
-            <div class="price-card">
-                <h3>Basic Package</h3>
-                <div class="price">R1,500<span>/month</span></div>
-                <ul>
-                    <li>5 Driving Lessons</li>
-                    <li>60 Minutes Each</li>
-                    <li>Learner's License Prep</li>
-                    <li>Weekday Availability</li>
-                </ul>
-                <a href="#contact" class="btn">Get Started</a>
+            <div class="course-item">
+                <h3>Code 14 Driving</h3>
+                <p>Heavy combination training</p>
             </div>
-            <div class="price-card featured">
-                <h3>Standard Package</h3>
-                <div class="price">R2,800<span>/month</span></div>
-                <ul>
-                    <li>10 Driving Lessons</li>
-                    <li>60 Minutes Each</li>
-                    <li>Learner's & Driver's Prep</li>
-                    <li>Flexible Scheduling</li>
-                    <li>Mock Test Included</li>
-                </ul>
-                <a href="#contact" class="btn">Get Started</a>
+            <div class="course-item">
+                <h3>Hazchem Course</h3>
+                <p>Hazardous materials certification</p>
             </div>
-            <div class="price-card">
-                <h3>Premium Package</h3>
-                <div class="price">R4,500<span>/month</span></div>
-                <ul>
-                    <li>20 Driving Lessons</li>
-                    <li>60 Minutes Each</li>
-                    <li>Complete Training</li>
-                    <li>Unlimited Scheduling</li>
-                    <li>Mock Tests Included</li>
-                    <li>Highway Driving</li>
-                </ul>
-                <a href="#contact" class="btn">Get Started</a>
+            <div class="course-item">
+                <h3>Forklift Certificate</h3>
+                <p>Forklift operation training</p>
+            </div>
+            <div class="course-item">
+                <h3>TLB Certificate</h3>
+                <p>Heavy equipment training</p>
+            </div>
+            <div class="course-item">
+                <h3>Fire Fighter Certificate</h3>
+                <p>Fire safety training</p>
             </div>
         </div>
     </section>
 
-    <section class="section contact" id="contact">
-        <h2 class="section-title">Contact Us</h2>
+    <section class="gallery">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSAM.jpg" alt="SCELO SAMANTUNGWA">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSA_.jpg" alt="SCELO SAMANTUNGWA">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_text_that_says_SCELOSAMANTUNGWA.jpg" alt="SCELO SAMANTUNGWA">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_and_text (1).jpg" alt="Driving School">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_and_text.jpg" alt="Driving School">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_road_and_text_that_says_SCE.jpg" alt="SCE Driving">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_car_road_and_text.jpg" alt="Road Driving">
+            </div>
+            <div class="gallery-item">
+                <img src="May_be_an_image_of_smiling_and_text.jpg" alt="Our Team">
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Contact us for more information</p>
         <div class="contact-wrapper">
             <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div>
-                        <p><strong>Address</strong></p>
-                        <p>123 Main Street, South Africa</p>
-                    </div>
-                </div>
+                <h3>Contact Information</h3>
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
                     <div>
-                        <p><strong>Phone</strong></p>
-                        <p>+27 12 345 6789</p>
+                        <p><strong>Phone / WhatsApp</strong></p>
+                        <p>074 428 2997</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">✉️</div>
                     <div>
                         <p><strong>Email</strong></p>
-                        <p>info@scelosamantungwa.co.za</p>
+                        <p>scelosamantungwa01@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -563,17 +655,23 @@
                 </div>
             </div>
             <form class="contact-form">
-                <h3>Book Your Lesson</h3>
+                <h3>Send us a Message</h3>
                 <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
                 <input type="tel" placeholder="Phone Number" required>
+                <input type="email" placeholder="Your Email">
                 <select>
-                    <option value="">Select Package</option>
-                    <option value="basic">Basic Package</option>
-                    <option value="standard">Standard Package</option>
-                    <option value="premium">Premium Package</option>
+                    <option value="">Select Service</option>
+                    <option value="learners">Learner's License</option>
+                    <option value="code8">Code 08 Driving</option>
+                    <option value="code10">Code 10 Driving</option>
+                    <option value="code14">Code 14 Driving</option>
+                    <option value="hazchem">Hazchem Course</option>
+                    <option value="forklift">Forklift Certificate</option>
+                    <option value="tlb">TLB Certificate</option>
+                    <option value="fire">Fire Fighter Certificate</option>
+                    <option value="photos">ID Photos</option>
                 </select>
-                <textarea rows="5" placeholder="Your Message"></textarea>
+                <textarea rows="4" placeholder="Your Message"></textarea>
                 <button type="submit">Send Message</button>
             </form>
         </div>
@@ -581,11 +679,11 @@
 
     <footer>
         <p>&copy; 2024 SCELO SAMANTUNGWA Driving School. All Rights Reserved.</p>
-        <p>Professional Driving Education</p>
+        <p>Professional Driving Education & Training</p>
         <div class="social-links">
             <a href="#">f</a>
-            <a href="#">in</a>
-            <a href="#">ig</a>
+            <a href="tel:0744282997">📞</a>
+            <a href="mailto:scelosamantungwa01@gmail.com">✉️</a>
         </div>
     </footer>
 </body>
