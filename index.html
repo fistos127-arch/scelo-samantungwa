@@ -438,18 +438,93 @@
             font-weight: bold;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .about-content,
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
             .contact-wrapper {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
+        }
 
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1rem;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                min-height: 60vh;
+                padding: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+            }
+            
+            .hero h3 {
+                font-size: 1.1rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .services-grid,
+            .courses-grid,
+            .gallery-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
             nav {
                 display: none;
+            }
+            
+            .gallery-item img {
+                height: 200px;
             }
         }
     </style>
@@ -618,7 +693,7 @@
                 <img src="May_be_an_image_of_car_road_and_text_that_says_SCE.jpg" alt="SCE Driving">
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_road_and_text.jpg" alt="Road Driving">
+                <img src="May_be_an_image_of_car_road_and_text (1).jpg" alt="Road Driving">
             </div>
             <div class="gallery-item">
                 <img src="May_be_an_image_of_smiling_and_text.jpg" alt="Our Team">

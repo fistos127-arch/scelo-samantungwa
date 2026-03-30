@@ -241,13 +241,63 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .page-hero h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1rem;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .page-hero {
+                min-height: 40vh;
+            }
+            
+            .page-hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .page-hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .services,
+            .gallery-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
             }
             
             nav {
                 display: none;
+            }
+            
+            .gallery-item img {
+                height: 200px;
             }
         }
     </style>
@@ -330,7 +380,7 @@
                 <img src="May_be_an_image_of_car_road_and_text_that_says_SCE.jpg" alt="SCE Driving">
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_road_and_text.jpg" alt="Road Driving">
+                <img src="May_be_an_image_of_car_road_and_text (1).jpg" alt="Road Driving">
             </div>
             <div class="gallery-item">
                 <img src="May_be_an_image_of_car_road_and_text (1).jpg" alt="Road Driving">
