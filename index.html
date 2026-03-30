@@ -199,10 +199,41 @@
             font-size: 1.1rem;
         }
 
-        .about-image img {
-            width: 100%;
+        .about-image {
+            background: linear-gradient(135deg, var(--red) 0%, var(--black) 100%);
             border-radius: 10px;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 300px;
             border: 4px solid var(--red);
+        }
+
+        .about-image .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-image .logo-sub {
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .about-image .logo-tagline {
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--white);
+            color: var(--red);
+            font-weight: bold;
+            border-radius: 25px;
         }
 
         .services-grid {
@@ -291,17 +322,39 @@
             overflow: hidden;
             border: 3px solid var(--red);
             transition: transform 0.3s;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--black) 0%, #333 100%);
         }
 
         .gallery-item:hover {
             transform: scale(1.03);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
+        .gallery-item .gallery-placeholder {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--white);
+        }
+
+        .gallery-item .gallery-placeholder .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item .gallery-placeholder .text {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery-item .gallery-placeholder .subtext {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
         }
 
         .contact-section {
@@ -575,7 +628,9 @@
                 </div>
             </div>
             <div class="about-image">
-                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSAM.jpg" alt="SCELO SAMANTUNGWA">
+                <div class="logo-text">SCELO<br>SAMANTUNGWA</div>
+                <div class="logo-sub">Driving School</div>
+                <div class="logo-tagline">Code 08 • 10 • 14</div>
             </div>
         </div>
     </section>
@@ -672,31 +727,63 @@
     </section>
 
     <section class="gallery">
-        <h2 class="section-title">Our Gallery</h2>
+        <h2 class="section-title">Our Services</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSAM.jpg" alt="SCELO SAMANTUNGWA">
+                <div class="gallery-placeholder">
+                    <div class="icon">🚗</div>
+                    <div class="text">Code 08</div>
+                    <div class="subtext">Light Vehicle</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_and_text_that_says_SCELOSA_.jpg" alt="SCELO SAMANTUNGWA">
+                <div class="gallery-placeholder">
+                    <div class="icon">🚛</div>
+                    <div class="text">Code 10</div>
+                    <div class="subtext">Truck</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_text_that_says_SCELOSAMANTUNGWA.jpg" alt="SCELO SAMANTUNGWA">
+                <div class="gallery-placeholder">
+                    <div class="icon">🚜</div>
+                    <div class="text">Code 14</div>
+                    <div class="subtext">Heavy Combination</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_and_text (1).jpg" alt="Driving School">
+                <div class="gallery-placeholder">
+                    <div class="icon">⚠️</div>
+                    <div class="text">Hazchem</div>
+                    <div class="subtext">Training</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_and_text.jpg" alt="Driving School">
+                <div class="gallery-placeholder">
+                    <div class="icon">🏗️</div>
+                    <div class="text">Forklift</div>
+                    <div class="subtext">Certificate</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_road_and_text_that_says_SCE.jpg" alt="SCE Driving">
+                <div class="gallery-placeholder">
+                    <div class="icon">🔧</div>
+                    <div class="text">TLB</div>
+                    <div class="subtext">Training</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_car_road_and_text (1).jpg" alt="Road Driving">
+                <div class="gallery-placeholder">
+                    <div class="icon">🔥</div>
+                    <div class="text">Fire Fighter</div>
+                    <div class="subtext">Certificate</div>
+                </div>
             </div>
             <div class="gallery-item">
-                <img src="May_be_an_image_of_smiling_and_text.jpg" alt="Our Team">
+                <div class="gallery-placeholder">
+                    <div class="icon">📷</div>
+                    <div class="text">ID Photos</div>
+                    <div class="subtext">& Copies</div>
+                </div>
             </div>
         </div>
     </section>
