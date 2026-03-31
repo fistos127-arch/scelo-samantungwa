@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCELO SAMANTUNGWA - Driving School & Training Courses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         :root {
-            --red: #E31C25;
-            --black: #1a1a1a;
-            --white: #ffffff;
-            --light-gray: #f5f5f5;
-            --dark-gray: #333;
+            --primary: #0A84FF;
+            --secondary: #FFFFFF;
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --dark-tertiary: #2a2a2a;
+            --text-muted: #888;
+            --gradient-start: #0a0a0a;
+            --gradient-end: #1a1a2e;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
         }
 
         body {
-            background-color: var(--white);
-            color: var(--black);
+            background-color: var(--dark-bg);
+            color: var(--secondary);
             line-height: 1.6;
         }
 
+        /* Header */
         header {
-            background-color: var(--black);
+            background-color: rgba(10, 10, 10, 0.95);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -35,33 +42,34 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .logo-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--red);
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-weight: bold;
-            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .logo h1 {
-            color: var(--white);
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.2;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         nav ul {
@@ -71,120 +79,299 @@
         }
 
         nav a {
-            color: var(--white);
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
+            opacity: 0.8;
         }
 
         nav a:hover {
-            color: var(--red);
+            color: var(--primary);
+            opacity: 1;
         }
 
+        .cta-button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(10, 132, 255, 0.4);
+        }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), 
-                        url('hero-background.jpg') center/cover;
-            min-height: 80vh;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(10, 132, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
         }
 
         .hero h2 {
-            color: var(--white);
+            color: var(--secondary);
             font-size: 3.5rem;
-            text-transform: uppercase;
+            font-weight: 700;
             margin-bottom: 1rem;
-            letter-spacing: 3px;
+            letter-spacing: -1px;
+            line-height: 1.2;
         }
 
         .hero h3 {
-            color: var(--red);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .hero p {
-            color: var(--white);
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: var(--red);
-            color: var(--white);
+            padding: 1rem 2rem;
             text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-            margin: 0.5rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
         }
 
-        .btn:hover {
-            background-color: #c41820;
-            transform: translateY(-3px);
+        .btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
         }
 
-        .btn-outline {
+        .btn-primary:hover {
+            background: #0984e3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(10, 132, 255, 0.4);
+        }
+
+        .btn-secondary {
             background: transparent;
-            border: 2px solid var(--white);
+            color: var(--secondary);
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--black);
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            background: rgba(255,255,255,0.05);
         }
 
-        .section {
-            padding: 5rem 2rem;
+        /* Hero Overlay Window */
+        .hero-overlay {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-overlay p {
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .section-dark {
-            background-color: var(--black);
-            color: var(--white);
-            max-width: 100%;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            color: var(--black);
-            position: relative;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(10, 132, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* API Demo Section */
+        .api-section {
+            background: var(--dark-secondary);
+            padding: 6rem 2rem;
+        }
+
+        .api-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .api-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .api-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .api-code {
+            background: #0d0d0d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            color: #00ff88;
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .api-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(6px);
+        }
+
+        .api-overlay p {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
             margin-bottom: 3rem;
+            color: var(--secondary);
         }
 
-        .section-dark .section-title {
-            color: var(--white);
+        .testimonial-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 12px;
         }
 
-        .section-dark .section-subtitle {
-            color: #aaa;
+        .testimonial-card p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.8;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--red);
-            margin: 1rem auto;
+        .testimonial-author {
+            margin-top: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-content {
@@ -194,280 +381,320 @@
             align-items: center;
         }
 
-        .about-text p {
+        .about-text h2 {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         .about-image {
-            background: linear-gradient(135deg, var(--red) 0%, var(--black) 100%);
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--dark-tertiary) 0%, var(--dark-secondary) 100%);
+            border-radius: 12px;
             padding: 3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            min-height: 300px;
-            border: 4px solid var(--red);
+            min-height: 350px;
+            border: 2px solid var(--primary);
         }
 
         .about-image .logo-text {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 1px;
             margin-bottom: 0.5rem;
         }
 
         .about-image .logo-sub {
-            font-size: 1.2rem;
-            color: var(--white);
-            opacity: 0.9;
+            font-size: 1rem;
+            color: var(--text-muted);
         }
 
         .about-image .logo-tagline {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             padding: 0.5rem 1.5rem;
-            background: var(--white);
-            color: var(--red);
-            font-weight: bold;
-            border-radius: 25px;
+            background: var(--primary);
+            color: var(--secondary);
+            font-weight: 600;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--dark-secondary);
+            padding: 6rem 2rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .service-card {
-            background: var(--light-gray);
-            padding: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-left: 3px solid var(--primary);
+            padding: 1.5rem;
             border-radius: 10px;
-            text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
-            border-bottom: 4px solid var(--red);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--black);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
         .service-card h3 {
-            margin-bottom: 1rem;
-            color: var(--black);
-        }
-
-        .courses {
-            background: var(--light-gray);
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .course-item {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--red);
-            transition: transform 0.3s;
-        }
-
-        .course-item:hover {
-            transform: translateX(5px);
-        }
-
-        .course-item h3 {
-            color: var(--red);
+            color: var(--primary);
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
-        .gallery {
-            background-color: var(--black);
-            padding: 5rem 2rem;
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
-        .gallery .section-title {
-            color: var(--white);
+        /* Gallery Section */
+        .gallery-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
         .gallery-item {
-            border-radius: 10px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
             overflow: hidden;
-            border: 3px solid var(--red);
-            transition: transform 0.3s;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .gallery-item:hover {
             transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(10, 132, 255, 0.2);
         }
 
-        .gallery-item .gallery-placeholder {
-            text-align: center;
-            padding: 1.5rem;
-            color: var(--white);
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
         }
 
-        .gallery-item .gallery-placeholder .icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        .gallery-item .text,
+        .gallery-item .subtext {
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
         }
 
-        .gallery-item .gallery-placeholder .text {
-            font-size: 0.9rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .gallery-item {
+            position: relative;
         }
 
-        .gallery-item .gallery-placeholder .subtext {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            margin-top: 0.25rem;
+        .gallery-item .text {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.95rem;
         }
 
+        .gallery-item .subtext {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding-top: 0;
+        }
+
+        /* Contact Section */
         .contact-section {
-            background: linear-gradient(var(--black), var(--black));
-            color: var(--white);
+            background: var(--dark-secondary);
+            padding: 6rem 2rem;
         }
 
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: start;
         }
 
         .contact-info h3 {
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--red);
+            margin-bottom: 2rem;
+            color: var(--secondary);
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--red);
-            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            background: rgba(10, 132, 255, 0.1);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
 
+        .contact-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-item strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
         .contact-form {
-            background: var(--white);
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             padding: 2rem;
-            border-radius: 10px;
-            color: var(--black);
+            border-radius: 12px;
         }
 
         .contact-form h3 {
             margin-bottom: 1.5rem;
+            color: var(--secondary);
         }
 
         .contact-form input,
         .contact-form textarea,
         .contact-form select {
             width: 100%;
-            padding: 1rem;
+            padding: 0.9rem;
             margin-bottom: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
             font-size: 1rem;
+            background: var(--dark-secondary);
+            color: var(--secondary);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-muted);
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus,
         .contact-form select:focus {
             outline: none;
-            border-color: var(--red);
+            border-color: var(--primary);
+        }
+
+        .contact-form select {
+            color: var(--text-muted);
         }
 
         .contact-form button {
             width: 100%;
             padding: 1rem;
-            background: var(--red);
-            color: var(--white);
+            background: var(--primary);
+            color: var(--secondary);
             border: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 6px;
             transition: background 0.3s;
         }
 
         .contact-form button:hover {
-            background: #c41820;
+            background: #0984e3;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-box {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .feature-box h3 {
-            color: var(--red);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
+        /* Footer */
         footer {
-            background: var(--black);
-            color: var(--white);
-            padding: 2rem;
+            background: var(--dark-bg);
+            padding: 3rem 2rem;
             text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
         }
 
         footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
@@ -475,43 +702,47 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .social-links a {
             width: 40px;
             height: 40px;
-            background: var(--red);
-            border-radius: 50%;
+            background: var(--dark-secondary);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--secondary);
             text-decoration: none;
-            font-weight: bold;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
         }
 
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
         @media (max-width: 1024px) {
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            
-            .services-grid {
+            .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .about-content {
+            .api-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
             
-            .about-image {
-                order: -1;
-            }
-            
+            .about-content,
             .contact-wrapper {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -520,64 +751,34 @@
                 padding: 1rem;
             }
             
-            .logo h1 {
-                font-size: 1rem;
-            }
-            
-            .logo-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-            
-            .hero {
-                min-height: 60vh;
-                padding: 1rem;
+            nav {
+                display: none;
             }
             
             .hero h2 {
-                font-size: 1.8rem;
-                letter-spacing: 1px;
-            }
-            
-            .hero h3 {
-                font-size: 1.1rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
                 font-size: 1rem;
             }
             
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .section {
-                padding: 3rem 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-subtitle {
-                font-size: 1rem;
-            }
-            
-            .services-grid,
-            .courses-grid,
-            .gallery-grid,
-            .features-grid {
+            .features-grid,
+            .about-stats {
                 grid-template-columns: 1fr;
             }
             
-            nav {
-                display: none;
+            .section-title {
+                font-size: 2rem;
             }
             
-            .gallery-item img {
-                height: 200px;
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -586,209 +787,174 @@
     <header>
         <div class="logo">
             <div class="logo-icon">S</div>
-            <h1>SCELO<br>SAMANTUNGWA</h1>
+            <h1>SCELO SAMANTUNGWA</h1>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <a href="#contact" class="cta-button">Book Now</a>
     </header>
 
     <section class="hero">
-        <h2>SCELO SAMANTUNGWA</h2>
-        <h3>Driving School & Training Centre</h3>
-        <p>Professional Learners License & Driving Lessons. Get road ready with us!</p>
-        <div>
-            <a href="contact.html" class="btn">Book Now</a>
-            <a href="#services" class="btn btn-outline">Our Services</a>
+        <div class="hero-content">
+            <h2>SCELO SAMANTUNGWA</h2>
+            <h3>Driving School & Training Centre</h3>
+            <p>Professional Learners License & Driving Lessons. Get road ready with us!</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Now</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-overlay">
+            <p>Professional driving education with certified instructors. Code 08 • 10 • 14</p>
         </div>
     </section>
 
-    <section class="section" id="about">
-        <h2 class="section-title">Welcome to SCELO SAMANTUNGWA</h2>
+    <section class="features" id="about">
+        <h2 class="section-title">Why Choose Us</h2>
         <p class="section-subtitle">Your trusted partner in driver education and training</p>
-        <div class="about-content">
-            <div class="about-text">
-                <p>At SCELO SAMANTUNGWA, we are committed to producing safe, responsible, and confident drivers. With years of experience in the industry, our professional instructors provide personalized training that meets each student's unique needs.</p>
-                <p>Our mission is to not just help you pass your test, but to equip you with lifelong driving skills that will keep you safe on the road.</p>
-                <p>We offer comprehensive training programs for individuals and businesses, ensuring the highest standards of driver competency and road safety.</p>
-                <div class="features-grid">
-                    <div class="feature-box">
-                        <h3>98% Pass Rate</h3>
-                    </div>
-                    <div class="feature-box">
-                        <h3>Certified Instructors</h3>
-                    </div>
-                    <div class="feature-box">
-                        <h3>Flexible Scheduling</h3>
-                    </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Real-time Training</h3>
+                <p>Learn with hands-on training in real driving conditions. We prepare you for every scenario on the road.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>Automatic Licensing Support</h3>
+                <p>Complete guidance for learner's license, code 08, 10, and 14. We handle all the paperwork for you.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Track Record</h3>
+                <p>98% pass rate with certified instructors. Compliance teams see successful graduates every month.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="api-section" id="courses">
+        <div class="api-content">
+            <div class="api-text">
+                <h2>Comprehensive Training Programs</h2>
+                <p>We offer complete driver training for all license codes. Our structured curriculum ensures you pass your test with confidence.</p>
+                <div class="api-overlay">
+                    <p>📚 Theory + Practical training included</p>
                 </div>
             </div>
-            <div class="about-image">
-                <div class="logo-text">SCELO<br>SAMANTUNGWA</div>
-                <div class="logo-sub">Driving School</div>
-                <div class="logo-tagline">Code 08 • 10 • 14</div>
+            <div class="api-code">
+                <p>// Available Courses</p>
+                <p>• Learner's License</p>
+                <p>• Code 08 (Light Vehicle)</p>
+                <p>• Code 10 (Truck)</p>
+                <p>• Code 14 (Heavy Combination)</p>
+                <p>• Hazchem Certificate</p>
+                <p>• Forklift Certificate</p>
+                <p>• TLB Certificate</p>
+                <p>• Fire Fighter Certificate</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-dark" id="services">
+    <section class="testimonials">
+        <h2>Trusted by Students</h2>
+        <div class="testimonial-card">
+            <p>"SCELO SAMANTUNGWA helped me get my driver's license in no time. The instructors are patient and professional. Highly recommended!"</p>
+            <div class="testimonial-author">- Happy Student</div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
         <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Comprehensive driving and training solutions</p>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">📋</div>
                 <h3>Learner's License</h3>
-                <p>Complete preparation for your learner's licence test. We cover all the theory and practical aspects you need to pass.</p>
+                <p>Complete preparation for your learner's licence test. We cover all the theory and practical aspects.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚗</div>
                 <h3>Driving Lessons (Code 08)</h3>
-                <p>Professional driving lessons for Code 08 (light motor vehicle). Learn at your own pace with patient instructors.</p>
+                <p>Professional driving lessons for light motor vehicle. Learn at your own pace with patient instructors.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚛</div>
                 <h3>Driving Lessons (Code 10)</h3>
-                <p>Code 10 truck driving lessons. Master heavy vehicle operation with our experienced trainers.</p>
+                <p>Truck driving lessons. Master heavy vehicle operation with our experienced trainers.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚜</div>
                 <h3>Driving Lessons (Code 14)</h3>
-                <p>Code 14 (heavy combination) training. Become a professional truck driver with our comprehensive course.</p>
+                <p>Heavy combination training. Become a professional truck driver with our comprehensive course.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">⚠️</div>
                 <h3>Hazchem Course</h3>
-                <p>Hazardous materials transportation training. Learn proper handling and safety protocols for dangerous goods.</p>
+                <p>Hazardous materials transportation training. Learn proper handling and safety protocols.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🏗️</div>
                 <h3>Forklift Certificate</h3>
                 <p>Get certified in forklift operation. Theory and practical training included.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🚜</div>
                 <h3>TLB Certificate</h3>
-                <p>Training for TLB (Tractor Loader Backhoe) operation. Get qualified for construction equipment.</p>
+                <p>Training for Tractor Loader Backhoe operation. Get qualified for construction equipment.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🔥</div>
                 <h3>Fire Fighter Certificates</h3>
                 <p>Fire safety training and certification. Learn fire prevention and emergency response.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon">📷</div>
-                <h3>ID Photos</h3>
-                <p>Professional ID photos for all your documentation needs.</p>
-            </div>
         </div>
     </section>
 
-    <section class="section courses">
-        <h2 class="section-title">Our Courses</h2>
-        <p class="section-subtitle">Professional training programs tailored to your needs</p>
-        <div class="courses-grid">
-            <div class="course-item">
-                <h3>Learner's License Course</h3>
-                <p>Complete preparation for your learner's test</p>
-            </div>
-            <div class="course-item">
-                <h3>Code 08 Driving</h3>
-                <p>Light motor vehicle lessons</p>
-            </div>
-            <div class="course-item">
-                <h3>Code 10 Driving</h3>
-                <p>Truck driving lessons</p>
-            </div>
-            <div class="course-item">
-                <h3>Code 14 Driving</h3>
-                <p>Heavy combination training</p>
-            </div>
-            <div class="course-item">
-                <h3>Hazchem Course</h3>
-                <p>Hazardous materials certification</p>
-            </div>
-            <div class="course-item">
-                <h3>Forklift Certificate</h3>
-                <p>Forklift operation training</p>
-            </div>
-            <div class="course-item">
-                <h3>TLB Certificate</h3>
-                <p>Heavy equipment training</p>
-            </div>
-            <div class="course-item">
-                <h3>Fire Fighter Certificate</h3>
-                <p>Fire safety training</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery">
-        <h2 class="section-title">Our Services</h2>
+    <section class="gallery-section">
+        <h2 class="section-title">Our Gallery</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">🚗</div>
-                    <div class="text">Code 08</div>
-                    <div class="subtext">Light Vehicle</div>
-                </div>
+                <img src="gallery1.jpg" alt="Code 08 - Light Vehicle">
+                <div class="text">Code 08</div>
+                <div class="subtext">Light Vehicle</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">🚛</div>
-                    <div class="text">Code 10</div>
-                    <div class="subtext">Truck</div>
-                </div>
+                <img src="May_be_an_image_of_car_and_text.jpg" alt="Code 10 - Truck">
+                <div class="text">Code 10</div>
+                <div class="subtext">Truck</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">🚜</div>
-                    <div class="text">Code 14</div>
-                    <div class="subtext">Heavy Combination</div>
-                </div>
+                <img src="May_be_an_image_of_van.jpg" alt="Code 14 - Heavy Combination">
+                <div class="text">Code 14</div>
+                <div class="subtext">Heavy Combination</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">⚠️</div>
-                    <div class="text">Hazchem</div>
-                    <div class="subtext">Training</div>
-                </div>
+                <img src="scelo-image.jpg" alt="Hazchem Training">
+                <div class="text">Hazchem</div>
+                <div class="subtext">Training</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">🏗️</div>
-                    <div class="text">Forklift</div>
-                    <div class="subtext">Certificate</div>
-                </div>
+                <img src="scelo-image2.jpg" alt="Forklift Certificate">
+                <div class="text">Forklift</div>
+                <div class="subtext">Certificate</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">🔧</div>
-                    <div class="text">TLB</div>
-                    <div class="subtext">Training</div>
-                </div>
+                <img src="scelo-image3.jpg" alt="TLB Training">
+                <div class="text">TLB</div>
+                <div class="subtext">Training</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">🔥</div>
-                    <div class="text">Fire Fighter</div>
-                    <div class="subtext">Certificate</div>
-                </div>
+                <img src="May_be_an_image_of_service_vehicle_road_and_text.jpg" alt="Fire Fighter Certificate">
+                <div class="text">Fire Fighter</div>
+                <div class="subtext">Certificate</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-placeholder">
-                    <div class="icon">📷</div>
-                    <div class="text">ID Photos</div>
-                    <div class="subtext">& Copies</div>
-                </div>
+                <img src="hero-background.jpg" alt="ID Photos & Copies">
+                <div class="text">ID Photos</div>
+                <div class="subtext">& Copies</div>
             </div>
         </div>
     </section>
 
-    <section class="section contact-section" id="contact">
+    <section class="contact-section" id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <p class="section-subtitle">Contact us for more information</p>
         <div class="contact-wrapper">
@@ -797,21 +963,21 @@
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
                     <div>
-                        <p><strong>Phone / WhatsApp</strong></p>
+                        <strong>Phone / WhatsApp</strong>
                         <p>074 428 2997</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">✉️</div>
                     <div>
-                        <p><strong>Email</strong></p>
+                        <strong>Email</strong>
                         <p>scelosamantungwa01@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">🕐</div>
                     <div>
-                        <p><strong>Operating Hours</strong></p>
+                        <strong>Operating Hours</strong>
                         <p>Mon - Sat: 8:00 AM - 6:00 PM</p>
                     </div>
                 </div>
@@ -840,6 +1006,12 @@
     </section>
 
     <footer>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
         <p>&copy; 2024 SCELO SAMANTUNGWA Driving School. All Rights Reserved.</p>
         <p>Professional Driving Education & Training</p>
         <div class="social-links">
